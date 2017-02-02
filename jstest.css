@@ -2,3 +2,19 @@
 	background-color: #ddd;
 	border: 2px dotted black;
 }
+
+.kvadratcell {
+	background-color: #080;
+	color: #fff;
+	font-weight: bold;
+}
+
+.kantcell {
+	background-color: #900;
+	color: #fff;
+	font-weight: bold;
+}
+
+.standardcell {
+	background-color: #fff;
+}
