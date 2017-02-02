@@ -1,6 +1,7 @@
 /* Det här är en kommentar */
 // Det här är också en kommentar
 
+/* Globala variabler */
 var counter = 0
 
 /*** Hjälpfunktioner ***/
@@ -19,8 +20,10 @@ var skrivHej = function() {
 }
 
 var skrivNummer = function() {
-	/* En for-loop */
-	for (i = 0; i < 5; i++) {
+	antal_loopar = 5
+
+	/* En klassisk for-loop */
+	for (i = 0; i < antal_loopar; i++) {
 		/* Börja med en tom sträng för varje varv i loopen */
 		str = ''
 
@@ -33,13 +36,10 @@ var skrivNummer = function() {
 		console.log('udda = ' + udda)
 
 		str += 'Nummer '
-
 		if (udda == true) {
 			str += "<b>"
 		}
-
 		str += counter + '<br/>'
-
 		if (udda == true) {
 			str += "</b>"
 		}
