@@ -19,6 +19,151 @@ var testRensa = function() {
 /*******************************/
 /*** Funktioner att leka med ***/
 /*******************************/
+function testaKonsollen() {
+	console.log('Hej konsollen!')
+
+	console.log('Ett nummer: ' + 42)
+
+	console.log('Ett beräkningsresultat: ' + (42/2 + 9) )
+
+	console.log('Visa flera siffror: ' + 1 + ', ' + 2 + ', ' + 3 + ' SLUT')
+
+	console.log('Ett annat sätt att göra samma sak: %d, %d, %d, %s',
+		 1, 2, 3, 'SLUT')
+
+	console.log('Flera rader: \nRad 1 \nRad 2 \nRad 3')
+}
+
+function testaVariabler() {
+	/* Skapa variabeln "nummer" och tilldela den ett värde */
+	var nummer = 1
+	console.log(nummer)
+
+	/* Sätt om variabeln */
+	nummer = 42
+	console.log(nummer)
+
+	/* En liten beräkning  */
+	nummer = 19 + 183 / 15
+	console.log(nummer)
+
+	/* Använd flera variabler tillsammans */
+	var a = 5
+	var b = 7
+
+	var c = a * b
+	console.log('c = %d', c)
+
+	/* Plussa på en variabel */
+	c = c + 1
+	console.log('Plussat: ' + c)
+
+	/* En kortare form av samma sak */
+	c += 1 
+	console.log('Plussat: ' + c)
+
+	/* Ännu kortare */
+	c++
+	console.log('Plussat: ' + c)
+
+	c -= 1 
+	console.log('Dra ifrån: ' + c)
+
+	/* Upprepa beräkning */
+	c = 0
+	c = c + (a*b)
+	console.log('c = %d', c)
+
+	c = c + (a*b)
+	console.log('c = %d', c)
+
+	c = c + (a*b)
+	console.log('c = %d', c)
+
+
+}
+
+function testaString() {
+	var str = 'Det här är en textsträng'
+	console.log(str)
+
+	str = str + " och såhär kan man förlänga den"
+	console.log(str)
+
+	var a = 17, b = 89
+	str = "Man kan skriva in siffror i strängen såhär: " + a + ", " + b
+	console.log(str)
+
+	var str1 = 'Man kan '
+	var str2 = 'sätta ihop '
+	var str3 = 'strängar såhär'
+	var str4 = str1 + str2 + str3
+	console.log(str4)
+}
+
+function testaIf() {
+	var x = 17
+	if (x > 10) {
+		console.log('Ja, 17 är mer än 10!')
+	}
+
+	villkor = true
+
+	if (villkor) {
+		console.log('Villkoret är sant!')
+	} else {
+		console.log('Villkoret är falskt!')
+	}
+
+}
+
+function testaLoopar() {
+	/* Ofta vill man repetera kod många gånger. Exempelvis skriva ut en sekvens av nummer: */
+	var i = 0
+	i = i + 1
+	console.log(i)
+	i = i + 1
+	console.log(i)
+	i = i + 1
+	console.log(i)
+	i = i + 1
+	console.log(i)
+	i = i + 1
+	console.log(i)
+
+	/* En while-loop kör så länge ("while") ett villkor är uppfyllt */
+	var j = 0
+	while (j < 5) {
+		j = j + 1
+		console.log("Loop " + j)
+	}
+
+	/* Eftersom man ofta vill hålla räkningen på vilket varv man är på finns ett kortare
+	    sätt att skriva loopen ovan, kallat en "for"-loop */
+
+	/*   vvvvvvvvv Startvärde */
+	/*              vvvvv Villkor för att fortsätta */
+	/*                     vvv Vad ska göras med variabeln varje varv */
+	for (var k = 0; k < 5; k++) {
+		console.log("Loop " + k)
+	}
+}
+
+function sidStart() {
+	//testaKonsollen();
+	//testaVariabler();
+	//testaString();
+	testaIf();
+	//testaLoopar();
+}
+
+/*** Den här funktionen anropas när du trycker på "Kör" ***/
+var testRun = function() {
+	//skrivHej();
+	//skrivNummer();
+	//multiplikationsTabell();
+}
+
 var skrivHej = function() {
 	skriv('<font color="#f00">HEJ!</font> <br/>')
 }
@@ -54,17 +199,6 @@ var skrivNummer = function() {
 		skriv(str)
 	}
 }
-
-
-/*** Den här funktionen anropas när du trycker på "Kör" ***/
-var testFunktion = function() {
-	console.log('Hej konsollen!')
-
-	skrivHej();
-	skrivNummer();
-	//multiplikationsTabell();
-}
-
 
 var addComment = function() {
 	namn = document.getElementById('commentName').value
