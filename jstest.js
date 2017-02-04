@@ -101,20 +101,33 @@ function testaString() {
 	console.log(str4)
 }
 
-function testaIf() {
-	var x = 17
-	if (x > 10) {
-		console.log('Ja, 17 är mer än 10!')
-	}
-
-	villkor = true
-
+function testaVillkor(villkor) {
 	if (villkor) {
 		console.log('Villkoret är sant!')
 	} else {
 		console.log('Villkoret är falskt!')
 	}
+}
 
+function testaIf() {
+	var x = 17
+
+	if (x > 10) {
+		console.log('Ja, 17 är mer än 10!')
+	}
+
+	if (x > 20) {
+		/* (Den här koden kommer inte köras alls) */
+		console.log('Ja, 17 är mer än 20!')
+	}
+
+	if (x > 20) {
+		console.log('Ja, 17 är mer än 20!')
+	} else if (x > 15 ) {
+		console.log('Ja, 17 är mer än 15!')
+	} else {
+		console.log('Nej, 17 är varken mer än 15 eller 20!')
+	}
 }
 
 function testaLoopar() {
@@ -149,12 +162,92 @@ function testaLoopar() {
 	}
 }
 
+function testaFunktioner() {
+
+	/* En enkel funktion */
+	function skrivHej() {
+		console.log('Hej!')
+		console.log('Hejdå!')
+	}
+
+	/* Kör funktionen */
+	skrivHej()
+
+
+	/* En funktion med en parameter */
+	console.log('\n\n')
+	function skrivText(parameter) {
+		console.log("Nu kör vi!")
+		console.log(parameter)
+		console.log("Färdigt!")
+	}
+
+	skrivText('Hej hopp!')
+	skrivText('Testar igen...')
+
+	/* En funktion med flera parametrar */
+	console.log('\n\n')
+	function skrivTexter(parameter1, parameter2) {
+		console.log("Nu kör vi!")
+		console.log(parameter1)
+		console.log(parameter2)
+		console.log("Färdigt!")
+	}
+
+	skrivTexter('Det här är den första texten...', 'och det här är den andra!')
+
+	/* En funktion som returnerar ett värde */
+	console.log('\n\n')
+	function multiplicera(a, b) {
+		return a * b
+	}
+
+	console.log(multiplicera(9, 5))
+
+	// Nästlade funktioner
+	console.log(multiplicera(3, 7))
+	console.log(multiplicera(5, (multiplicera(5, 2))))
+	console.log(multiplicera(10, multiplicera(2, (multiplicera(4, 5)))))
+
+	// Kombinera funktioner med variabler och loopar
+	function skrivResultat(resultat) {
+		console.log('Resultatet är ' + resultat)
+	}
+
+	var total = 1
+	for (i = 0; i < 11; i++) {
+		skrivResultat(total)
+		total = multiplicera(total, 2)
+	}
+
+	// Kombinera koncepten
+	function skrivTabell(vilkenTabell, antal) {
+		str = ''
+		for (i = 0; i < antal; i++) {
+			str += i + '*' + vilkenTabell + ' = ' + multiplicera(i, vilkenTabell) + ' \t';
+		}
+		console.log(str)
+	}
+
+	function skrivMultiplikationstabeller(start, antal_tabeller, antal_per_tabell) {
+		for (j = 0; j < antal_tabeller; j++) {
+			skrivTabell(start + j, antal_per_tabell)
+		}
+	}
+
+	console.log('1:ans till 5:ans:')
+	skrivMultiplikationstabeller(1, 5, 10)
+	console.log('Första halvan av 10:ans till 12:ans')
+	skrivMultiplikationstabeller(10, 3, 5)
+}
+
 function sidStart() {
 	//testaKonsollen();
 	//testaVariabler();
 	//testaString();
-	testaIf();
+	//testaIf();
 	//testaLoopar();
+	testaFunktioner();
 }
 
 /*** Den här funktionen anropas när du trycker på "Kör" ***/
@@ -169,6 +262,10 @@ var skrivHej = function() {
 }
 
 
+function isOdd (arg) {
+	return ((arg % 2) == 1)
+}
+
 var skrivNummer = function() {
 	antal_loopar = 5
 
@@ -178,7 +275,7 @@ var skrivNummer = function() {
 		str = ''
 
 		/* En if/else-sats för att ta reda på om talet är udda */
-		if (counter % 2 == 1) {
+		if (isOdd(i)) {
 			udda = true
 		} else {
 			udda = false
